@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+  <body>
+
+            <h2 class="text-center mt-4">Create your blog</h2>
+        <div class="container border border-dark mt-5" style="width:1000px;height:220px;">
+
+            <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <br>
+                <div class="mb-3">
+                    <h6><label for="title" class="form-label">Title</label></h6>
+                    <input type="text" class="form-control "  style="width:980px;" placeholder="title" name="title"  required>
+                </div>
+
+                <div class="mb-3">
+                    <h6><label for="cover photo" class="form-label">cover_image</label></h6>
+                    <input type="file" class="form-control "  style="width:980px;" placeholder="cover-image" name="coverimage">
+                </div>
+
+                     <br><br>
+
+                <h6>content-1</h6>
+
+                    <textarea  class="container border border-dark" style="width:1000px;height:150px"; placeholder="content paragraph 1" name="body1" required></textarea>
+
+                    <br><br>
+
+                <div class="mb-3">
+                    <h6><label for="title" class="form-label">Subtitle - 1</label></h6>
+                    <input type="text" class="form-control "  style="width:980px;" placeholder="subtitle-1" name="subtitle1"  >
+                </div>
+
+                    <h6>content 2</h6>
+
+                    <textarea  class="container border border-dark" style="width:1000px;height:150px"; placeholder="content paragraph 2" name="body2" ></textarea>
+                    <br><br>
+
+                <div class="mb-3">
+                    <h6><label for="title" class="form-label">subitle - 2</label></h6>
+                    <input type="text" class="form-control "  style="width:980px;" placeholder="subtitle - 2" name="subtitle2" >
+                </div>
+
+                <h6>content 3</h6>
+
+                <textarea  class="container border border-dark" style="width:1000px;height:150px;" placeholder="content paragraph 3" name="body3" ></textarea>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-center" >Post</button>
+                     <a href="/"><button type="button"  class="btn btn-danger btn-center">Cancel</button></a>
+                </div>
+            </form>
+        </div>
+
+
+  </body>
+</html>
+{% endblock %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>

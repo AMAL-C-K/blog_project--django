@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for b in blog %}
+
+<h1 class="ms-5 mt-3">{{b.title}}</h1>
+<br>
+<p class="text-start ms-5 me-5 mb-5 fs-5 fw-normal">{{b.body1}}</p> <br><br>
+
+{% if b.subtitle1 %}
+    <h3 class="ms-5">{{b.subtitle1}}</h3>
+{% endif %}
+<br><br>
+{% if b.body2 %}
+    <p class="text-start ms-5 me-5 mb-5 fs-5 fw-normal">{{b.body2}}</p>
+{% endif %}
+
+{% if b.subtitle2 %}
+    <h3 class="ms-5">{{b.subtitle2}}</h3>
+{% endif %}
+<br><br>
+
+{% if b.body3 %}
+    <p class="text-start ms-5 me-5 mb-5 fs-5 fw-normal">{{b.body3}}</p>
+{% endif %}
+<br><br>
+  <div class="text-center">
+    <a href="{% url 'delete_blog' b.id %}"><button type="button"  class="btn btn-danger center">Delete</button></a>
+    <a href="{% url 'update_blog' b.id %}"><button type="button" class="btn btn-success">Update</button></a>
+    <a href="{% url 'my_blogs' %}"> <button type="button" class="btn btn-info">Back</button></a>
+  </div >
+
+</div>
+
+<br><br><br><br><br>
+
+
+   {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<!--form-->
+<br>
+
+<div class="container border border-dark" style="width:520px;height:450px;">
+    <br>
+    <h2 class="text-center">Signup</h2>
+ <form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control "  style="width:500px;" placeholder="Email/Phone number/username" name="username"  required>
+    </div>
+    <div class="mb-3">
+        <label  class="form-label" >Email address</label>
+        <input type="email" class="form-control" placeholder="Email" style="width:500px;" name="email" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control"  style="width:500px;" placeholder="Password" name="password" required>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-center" >Signup</button><br>
+        already registered <a href="{% url 'signin' %}" class="fs-6 fw-bold">signin</a>
+    </div>
+ </form>
+</div>
+
+<!--form-->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
+{% endblock %}

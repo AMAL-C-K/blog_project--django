@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="row row-cols-1 row-cols-md-4 g-3" >
+  {% for b in blog %}
+    <div class="col">
+    <div class="card h-90 border border-dark ms-5 mt-4">
+      <img src="{{b.cover_image.url}}" align="middle" class="card-img-top ms-5 mt-2" alt="..." style="height:150px;width:190px">
+      <div class="card-body">
+        <a style="text-decoration:none" href="{% url 'view_blog' b.id %}"><h5  class="card-title text-center text-dark">{{b.title}}</h5></a>
+        <h6 class="card-title text-dark text-end fs-6">created by : {{b.author}}</h6>
+        <h6 class="card-title text-danger text-end">posted on  : {{b.created_on}}</h6>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--      {% for b in blog %}-->
+
+<!--        <div class="col-md-2">-->
+<!--          <div class="card text-center border-1 border-dark" style="width: 12rem;height: 12rem;mt-4;p-2">-->
+<!--&lt;!&ndash;            <a  href=""><img  style="height: 180px;width:130px;" class="pt-2"  src="{{i.image.url}}"   alt="pro image" class="card-img-top" alt="..."></a>&ndash;&gt;&ndash;&gt;-->
+<!--            <div class="card-body">-->
+<!--                <a href="{% url 'view_blog' b.id %}"><h6>{{b.title}}</h6></a>&ndash;&gt;-->
+<!--              <h6 class="card-title text-danger">created by : {{b.author}}</h6>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--        </div>-->
+<!--      {% endfor %}-->
+<!--        <hr>-->
+<!--    </div>-->
+<!--  </div>-->
+
+</body>
+</html>
+
+{% endblock %}
