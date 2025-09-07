@@ -3,22 +3,29 @@
 
 {% block content %}
 <body class="bg-body">
-    <div class="text-end mt-4">
-      <a href="{% url 'create_blog' %}"><button type="button"  class="btn btn-primary">Create New Blog</button></a>
+  <div class="container mt-4">
+    <div class="text-end mb-3">
+      <a href="{% url 'create_blog' %}">
+        <button type="button" class="btn btn-primary">Create New Blog</button>
+      </a>
     </div>
-      <div class="row row-cols-1 row-cols-md-4 g-5">
-  {% for b in blog %}
-    <div class="col">
-    <div class="card h-100 mt-3 border border-dark">
-      <img src="{{b.cover_image.url}}" class="card-img-top mt-3 " alt="..." style="height:250px">
-      <div class="card-body">
-        <a style="text-decoration:none" href="{% url 'view_my_blog' b.id %}"><h3 class="card-title text-dark text-center">{{b.title}}</h3></a>
 
-      </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      {% for b in blog %}
+        <div class="col">
+          <div class="card h-100 border border-dark shadow-sm">
+            <img src="{{ b.cover_image.url }}" class="card-img-top mx-auto d-block mt-3" alt="Blog Image" style="height: 250px; object-fit: cover; width: 100%;">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <a href="{% url 'view_my_blog' b.id %}" class="text-decoration-none">
+                <h5 class="card-title text-dark text-center">{{ b.title }}</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
-{% endfor %}
-</div>
 </body>
+{% endblock %}
 
 {% endblock %}
